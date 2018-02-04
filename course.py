@@ -66,22 +66,91 @@ def get_prerequisites(course_id):
 # print(get_prerequisites(102))
 
 # ----------------------------------
+# for i in range(0,len(course_full＿name)):
+#     # print(course_full＿name[i], course_id[i], get_course_des(course_id[i]), get_credits(course_id[i]), get_instructor(course_id[i]), get_terms_offered(course_id[i]))
+#     print(course_full＿name[i].strip());
+
+# add course full name into list
+list_course_full_name=[];
 for i in range(0,len(course_full＿name)):
-    print(course_full＿name[i], course_id[i], get_course_des(course_id[i]), get_credits(course_id[i]), get_instructor(course_id[i]), get_terms_offered(course_id[i]))
+    list_course_full_name.append(course_full＿name[i].strip());
+
+print(list_course_full_name);
 
 
+# add course_id into list
+list_course_id=[];
+for i in range(0,len(course_full＿name)):
+    list_course_id.append(course_id[i].strip());
+
+print(list_course_id);
+
+# add credit into list
+list_credit=[];
+for i in range(0,len(course_full＿name)):
+    list_credit.append(get_credits(course_id[i])[0].strip());
+
+print(list_credit);
 
 
+# add terms_offered into list
+list_terms_offered=[];
+for i in range(0,len(course_full＿name)):
+    list_terms_offered.append(get_terms_offered(course_id[i])[0].strip());
 
-# write into file
-with open("/home/ning/Documents/mcgill_course_python/output","w") as f:
-    for i in range(0, len(course_full＿name)):
-        f.write(course_full＿name[i])
-        f.write(course_id[i])
-        f.write(get_course_des(course_id[i])[0])
-        f.write(get_credits(course_id[i])[0])
-        f.write(get_instructor(course_id[i])[0])
-        f.write(get_terms_offered(course_id[i])[0])
+print(list_terms_offered);
+
+
+# add instructor into list
+list_instructor=[];
+for i in range(0,len(course_full＿name)):
+    list_instructor.append(get_instructor(course_id[i])[0].strip());
+
+print(list_instructor);
+
+
+# add get_prerequisites into list
+list_prerequisites=[];
+for i in range(0,len(course_full＿name)):
+    list_prerequisites.append(get_prerequisites(course_id[i])[0].strip());
+
+print(list_prerequisites);
+
+
+# write fullname
+with open("full_course_name","w") as f:
+    f.write(str(list_course_full_name))
+
+# write course_id
+with open("course_id","w") as f:
+    f.write(str(list_course_id))
+
+# write credits
+with open("credits","w") as f:
+    f.write(str(list_credit))
+
+# write terms_offered
+with open("terms_offered","w") as f:
+    f.write(str(list_terms_offered))
+
+
+# write list_instructor
+with open("instructor","w") as f:
+    f.write(str(list_instructor))
+
+# write list_prerequisites
+with open("prerequisites","w") as f:
+    f.write(str(list_prerequisites))
+
+# # write into file
+# with open("/home/ning/Documents/mcgill_course_python/output","w") as f:
+#     for i in range(0, len(course_full＿name)):
+#         f.write(course_full＿name[i])
+#         f.write(course_id[i])
+#         f.write(get_course_des(course_id[i])[0])
+#         f.write(get_credits(course_id[i])[0])
+#         f.write(get_instructor(course_id[i])[0])
+#         f.write(get_terms_offered(course_id[i])[0])
 
 
 
